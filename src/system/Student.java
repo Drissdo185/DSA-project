@@ -7,8 +7,8 @@ public class Student extends Member implements Serializable {
     private static final long serialVersionUID = 1L;
     private double finalAverageGrade;
     private Student parent;
-    private Student student1;
-    private Student student2;
+    private Student left;
+    private Student right;
 
     public Student(String name, String lastName, String email, String code){
         super(name, lastName, email, code);
@@ -51,20 +51,20 @@ public class Student extends Member implements Serializable {
         this.parent = parent;
     }
 
-    public Student getStudent1() {
-        return student1;
+    public Student getLeft() {
+        return left;
     }
 
-    public void setStudent1(Student student1) {
-        this.student1 = student1;
+    public void setLeft(Student left) {
+        this.left = left;
     }
 
-    public Student getStudent2() {
-        return student2;
+    public Student getRight() {
+        return right;
     }
 
-    public void setStudent2(Student student2) {
-        this.student2 = student2;
+    public void setRight(Student right) {
+        this.right = right;
     }
 
     public String nodeToString(String separator){
