@@ -1,20 +1,20 @@
 public class LinkedList {
-    private Node head;
+    Node head;
 
     public LinkedList() {
-        head = null;
+        this.head = null;
     }
 
-    public void addAccount(Account data) {
-        Node newNode = new Node(data);
+    public void addAccount(Account account) {
+        Node newNode = new Node(account);
         if (head == null) {
             head = newNode;
         } else {
-            Node temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
             }
-            temp.next = newNode;
+            current.next = newNode;
         }
     }
     

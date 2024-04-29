@@ -4,10 +4,14 @@ public class Account {
     private double balance;
     
 
-    public Account(String name, int accountNumber,double balance) {
+    public Account(int accountNumber, String name, double balance) {
         this.name = name;
         this.accountNumber = accountNumber;
         this.balance = balance;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
     public void deposit(double amount) {
