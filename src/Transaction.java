@@ -1,7 +1,12 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Transaction {
     private int senderAccountNumber;
@@ -9,11 +14,11 @@ public class Transaction {
     private double amount;
     private LocalDateTime transactionTime;
 
-    public Transaction(int senderAccountNumber, int receiverAccountNumber, double amount) {
+    public Transaction(int senderAccountNumber, int receiverAccountNumber, double amount, LocalDateTime transactionTime) {
         this.senderAccountNumber = senderAccountNumber;
         this.receiverAccountNumber = receiverAccountNumber;
         this.amount = amount;
-        this.transactionTime = LocalDateTime.now();
+        this.transactionTime = transactionTime;
     }
 
     public void saveToFile() {
@@ -27,4 +32,24 @@ public class Transaction {
             System.err.println("Error saving transaction to file: " + e.getMessage());
         }
     }
+
+    public LocalDateTime getDate() {
+        return transactionTime;
+    }
+    public double getAmount() {
+        return amount;
+    }
+    public int getSenderAccountNumber() {
+        return senderAccountNumber;
+    }
+    public int getReceiverAccountNumber() {
+        return receiverAccountNumber;
+    }
+
+
+
+
+
+
+
 }

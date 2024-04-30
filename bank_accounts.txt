@@ -1,1 +1,2 @@
-487988,Dat  Do,1200.0
+234567,Nguyen Van B,1500.0
+123456,Nguyen Van A,900.0
