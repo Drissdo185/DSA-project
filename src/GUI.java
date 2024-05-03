@@ -522,7 +522,8 @@ public class GUI extends JFrame {
         add(panel); // Add the panel to the frame
 
         pack(); // Adjust frame size to fit components
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null); //hehehe
+
         setVisible(true);
     }
     public void refreshTable(DefaultTableModel model, LinkedList accountsList) {
