@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class PuzzlePanel extends JPanel {
-    private JButton[][] buttons;
+    public JButton[][] buttons;
     private Point emptySpace;
     private Timer timer;
     private int elapsedTime;
@@ -14,8 +14,8 @@ public class PuzzlePanel extends JPanel {
 
     public PuzzlePanel(PuzzleGame puzzleGame) {
         this.puzzleGame = puzzleGame;
-        setLayout(new GridLayout(2, 2));
-        buttons = new JButton[2][2];
+        setLayout(new GridLayout(3, 3)); // if you wanna change layout, change this line
+        buttons = new JButton[3][3]; // if you change layout, change this line
         initializeButtons();
         shuffleButtons();
 
@@ -26,8 +26,7 @@ public class PuzzlePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 elapsedTime++;
-                // Update UI with new elapsed time
-                // For example, you can update a JLabel with the elapsed time
+
             }
         });
         timer.start();
@@ -51,9 +50,9 @@ public class PuzzlePanel extends JPanel {
         };
 
         int counter = 1;
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                if (counter == 4) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (counter == 9) {
                     buttons[i][j] = new JButton("");
                     emptySpace = new Point(i, j);
                 } else {
@@ -72,8 +71,8 @@ public class PuzzlePanel extends JPanel {
     private void shuffleButtons() {
         Random random = new Random();
         for (int i = 0; i < 1000; i++) {
-            int row = random.nextInt(2);
-            int col = random.nextInt(2);
+            int row = random.nextInt(3);
+            int col = random.nextInt(3);
             swapWithEmptySpace(buttons[row][col]);
         }
     }
@@ -81,8 +80,8 @@ public class PuzzlePanel extends JPanel {
     private void swapWithEmptySpace(JButton button) {
         int buttonRow = -1;
         int buttonCol = -1;
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 if (buttons[i][j] == button) {
                     buttonRow = i;
                     buttonCol = j;
@@ -105,9 +104,9 @@ public class PuzzlePanel extends JPanel {
 
     private boolean isSolved() {
         int counter = 1;
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                if (counter == 4) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (counter == 9) {
                     if (!buttons[i][j].getText().equals("")) {
                         return false;
                     }
