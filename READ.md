@@ -1,6 +1,7 @@
 # Puzzle Game
 
 This is a simple puzzle game implemented in Java. The game includes a bot that can automatically solve the puzzle.
+(![img.png](img.png))
 
 ## Features
 
