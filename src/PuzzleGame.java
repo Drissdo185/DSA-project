@@ -35,58 +35,26 @@ public class PuzzleGame {
         puzzlePanel.setBounds(100, 100, puzzlePanel.getPreferredSize().width, puzzlePanel.getPreferredSize().height);
         frame.add(puzzlePanel);
 
+        // Create an instance of the Bot class
+        Bot bot = new Bot(puzzlePanel, this, frame);
         // Create a new JButton instance for the "Solver" button
         JButton solverButton = new JButton("Solver");
         solverButton.setBounds(650, 150, 100, 50); // Adjust the position and size as needed
         solverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Create an instance of BFS
-                BFS bfs = new BFS();
 
-                // Get the initial state of the puzzle
-                int[][] initialState = new int[3][3];
-                for (int i = 0; i < 3; i++) {
-                    for (int j = 0; j < 3; j++) {
-                        String buttonText = puzzlePanel.buttons[i][j].getText();
-                        initialState[i][j] = buttonText.equals("") ? 0 : Integer.parseInt(buttonText);
-                    }
-                }
+                // Stop the timer and reset seconds to 0
+                PuzzleGame.this.stopTimer();
+                PuzzleGame.this.setSeconds(0);
+                timerLabel.setText("Time: " + PuzzleGame.this.getSeconds() + "s");
 
-                // Solve the puzzle
-                List<int[][]> solution = bfs.solve(initialState);
+                // Start solving the puzzle
+                bot.autoSolve();
 
-                if (solution == null || solution.isEmpty()) {
-                    JOptionPane.showMessageDialog(frame, "No solution found!");
-                    return;
-                }
+                // Restart the timer
+                PuzzleGame.this.startTimer();
 
-                Timer solverTimer = new Timer(1000, null);
-                solverTimer.addActionListener(new ActionListener() {
-                    private int index = 0; // To keep track of the current step
-
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (index < solution.size()) {
-                            int[][] state = solution.get(index);
-                            for (int i = 0; i < 3; i++) {
-                                for (int j = 0; j < 3; j++) {
-                                    puzzlePanel.buttons[i][j].setText(state[i][j] == 0 ? "" : String.valueOf(state[i][j]));
-                                }
-                            }
-                            index++;
-                            incrementSteps(); // Increment steps after updating the state
-                        } else {
-                            // Stop the timer when all steps have been visualized
-                            ((Timer) e.getSource()).stop();
-                            PuzzleGame.this.timer.stop();
-                            JOptionPane.showMessageDialog(frame, "The bot has finished playing. It took " + seconds + " seconds and " + steps + " steps.");
-                        }
-                    }
-                });
-
-                // Start the timer
-                solverTimer.start();
             }
         });
 
@@ -112,6 +80,21 @@ public class PuzzleGame {
     public void incrementSteps() {
         steps++;
         stepsLabel.setText("Steps: " + steps);
+    }
+
+    public int getSteps() {
+        return steps;
+    }
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
+    public void startTimer() {
+        timer.start();
     }
 }
 
