@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class PuzzleGame {
     private int steps = 0;
@@ -35,8 +34,10 @@ public class PuzzleGame {
         puzzlePanel.setBounds(100, 100, puzzlePanel.getPreferredSize().width, puzzlePanel.getPreferredSize().height);
         frame.add(puzzlePanel);
 
-        // Create an instance of the Bot class
-        Bot bot = new Bot(puzzlePanel, this, frame);
+        // Create an instance of the Bot using BFS class
+        BotBFS botBFS = new BotBFS(puzzlePanel, this, frame);
+        BotDFS botDFS = new BotDFS(puzzlePanel, this, frame);
+
         // Create a new JButton instance for the "Solver" button
         JButton solverButton = new JButton("Solver");
         solverButton.setBounds(650, 150, 100, 50); // Adjust the position and size as needed
@@ -49,8 +50,23 @@ public class PuzzleGame {
                 PuzzleGame.this.setSeconds(0);
                 timerLabel.setText("Time: " + PuzzleGame.this.getSeconds() + "s");
 
+                // Show a dialog with two options
+                Object[] options = {"BFS", "DFS"};
+                int n = JOptionPane.showOptionDialog(frame,
+                        "Which algorithm do you want to use to solve the puzzle?",
+                        "Choose an algorithm",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options,
+                        options[0]);
+
                 // Start solving the puzzle
-                bot.autoSolve();
+                if (n == JOptionPane.YES_OPTION) {
+                    botBFS.autoSolve();
+                }else{
+                    botDFS.autoSolve();
+                }
 
                 // Restart the timer
                 PuzzleGame.this.startTimer();

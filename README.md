@@ -1,12 +1,12 @@
 # Puzzle Game
 
-This is a simple puzzle game implemented in Java. The game includes a bot that can automatically solve the puzzle.
+This is a simple puzzle game implemented in Java. The game includes a botBFS that can automatically solve the puzzle.
 ![img_1.png](<assets/img.png>)
 
 ## Features
 
 - Interactive GUI for playing the puzzle game.
-- A bot that can automatically solve the puzzle.
+- A botBFS that can automatically solve the puzzle.
 - Timer to keep track of the time taken to solve the puzzle.
 - Step counter to keep track of the number of steps taken to solve the puzzle.
 
@@ -21,7 +21,7 @@ This is a simple puzzle game implemented in Java. The game includes a bot that c
 ## Classes
 
 - `PuzzleGame`: This is the main class that runs the game. It includes a timer and a step counter.
-- `Bot`: This class includes the logic for the bot that can automatically solve the puzzle.
+- `BotBFS`: This class includes the logic for the botBFS that can automatically solve the puzzle.
 - `PuzzlePanel`: This class represents the puzzle board.
 
 ## Contributing

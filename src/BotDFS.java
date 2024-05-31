@@ -3,14 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class Bot {
-    private BFS bfs;
+public class BotDFS {
+    private DFS dfs;
     private PuzzlePanel puzzlePanel;
     private PuzzleGame puzzleGame;
     private JFrame frame;
 
-    public Bot(PuzzlePanel puzzlePanel, PuzzleGame puzzleGame, JFrame frame) {
-        this.bfs = new BFS();
+    public BotDFS(PuzzlePanel puzzlePanel, PuzzleGame puzzleGame, JFrame frame) {
+        this.dfs = new DFS();
         this.puzzlePanel = puzzlePanel;
         this.puzzleGame = puzzleGame;
         this.frame = frame;
@@ -27,14 +27,14 @@ public class Bot {
         }
 
         // Solve the puzzle
-        List<int[][]> solution = bfs.solve(initialState);
+        List<int[][]> solution = dfs.solve(initialState);
 
         if (solution == null || solution.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "No solution found!");
             return;
         }
 
-        Timer solverTimer = new Timer(1000, null);
+        Timer solverTimer = new Timer(10, null);
         solverTimer.addActionListener(new ActionListener() {
             private int index = 0; // To keep track of the current step
 
