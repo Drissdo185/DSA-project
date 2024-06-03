@@ -28,6 +28,14 @@ This is a simple puzzle game implemented in Java. The game includes a botBFS tha
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Report
+That is my academic report about project. 
+
+Click link below to see
+
+[Link]("https://docs.google.com/document/d/1YwmGkakv3WCfeS9mtjHaA5MYlgE5xeR0ef3JZAV-Z9U/edit?usp=sharing")
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
