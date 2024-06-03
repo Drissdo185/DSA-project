@@ -33,7 +33,7 @@ That is my academic report about project.
 
 Click link below to see
 
-[Link]("https://docs.google.com/document/d/1YwmGkakv3WCfeS9mtjHaA5MYlgE5xeR0ef3JZAV-Z9U/edit?usp=sharing")
+[Link](https://docs.google.com/document/d/1YwmGkakv3WCfeS9mtjHaA5MYlgE5xeR0ef3JZAV-Z9U/edit?usp=sharing)
 
 
 ## License
