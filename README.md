@@ -1,14 +1,15 @@
 # Puzzle Game
 
-This is a simple puzzle game implemented in Java. The game includes a botBFS that can automatically solve the puzzle.
+This is a simple puzzle game implemented in Java. The game includes a botBFS and a botDFS that can automatically solve the puzzle.
 ![img_1.png](<assets/img.png>)
 
 ## Features
 
 - Interactive GUI for playing the puzzle game.
-- A botBFS that can automatically solve the puzzle.
+- A botBFS and a botDFS that can automatically solve the puzzle.
 - Timer to keep track of the time taken to solve the puzzle.
 - Step counter to keep track of the number of steps taken to solve the puzzle.
+- Reset button to restart the game.
 
 ## How to Run
 
@@ -16,12 +17,13 @@ This is a simple puzzle game implemented in Java. The game includes a botBFS tha
 2. Clone this repository.
 3. Navigate to the `src` directory.
 4. Compile the Java files using the command `javac *.java`.
-5. Run the `PuzzleGame` class using the command `java PuzzleGame`.
+5. Run the `Main` class using the command `java Main`.
 
 ## Classes
 
-- `PuzzleGame`: This is the main class that runs the game. It includes a timer and a step counter.
+- `PuzzleGame`: This is the main class that runs the game. It includes a timer, a step counter, and a reset button.
 - `BotBFS`: This class includes the logic for the botBFS that can automatically solve the puzzle.
+- `BotDFS`: This class includes the logic for the botDFS that can automatically solve the puzzle.
 - `PuzzlePanel`: This class represents the puzzle board.
 
 ## Contributing
@@ -29,7 +31,7 @@ This is a simple puzzle game implemented in Java. The game includes a botBFS tha
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Report
-That is my academic report about project. 
+That is my academic report about project.
 
 Click link below to see
 

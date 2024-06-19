@@ -30,6 +30,17 @@ public class PuzzleGame {
         timerLabel.setBounds(650, 100, 150, 50); // Adjusted the width to fit the text
         frame.add(timerLabel);
 
+        // reset button
+        JButton resetButton = new JButton("Reset");
+        resetButton.setBounds(650, 200, 100, 50); // Adjust the position and size as needed
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PuzzleGame.this.resetGame();
+            }
+        });
+        frame.add(resetButton);
+
         PuzzlePanel puzzlePanel = new PuzzlePanel(this);
         puzzlePanel.setBounds(100, 100, puzzlePanel.getPreferredSize().width, puzzlePanel.getPreferredSize().height);
         frame.add(puzzlePanel);
@@ -87,6 +98,20 @@ public class PuzzleGame {
         timer.start();
 
         frame.setVisible(true);
+    }
+    
+    public void resetGame(){
+        this.steps = 0;
+        this.seconds = 0;
+
+        stepsLabel.setText("Steps: " + steps);
+        timerLabel.setText("Time: " + seconds + "s");
+
+        // Dung thoi gian
+        this.startTimer();
+
+        // reset xog thi bat dau thoi gian lai
+        this.startTimer();
     }
 
     public void stopTimer() {
